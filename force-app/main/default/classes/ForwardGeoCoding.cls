@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 02-27-2024
+ * @last modified on  : 02-28-2024
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class ForwardGeoCoding {
@@ -69,12 +69,12 @@ public with sharing class ForwardGeoCoding {
             System.debug('Call out Exception occured :' + calloutExp.getMessage());
             if (String.valueOf(calloutExp.getMessage()).startsWith('Unauthorized endpoint')) {
                 
-                account.addError('Missing Remote site config in salesforce');
+                
                 System.debug('Missing Remote site config in salesforce');
             }
         } catch (System.Exception allExp) {
 
-            account.addError('Hit with bad response from the server');
+
             System.debug('Exception hit :' + allExp.getStackTraceString());
         }
         
