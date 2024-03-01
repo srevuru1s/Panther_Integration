@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 02-28-2024
+ * @last modified on  : 02-29-2024
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class ForwardGeoCoding {
@@ -13,15 +13,15 @@ public with sharing class ForwardGeoCoding {
         Account account = [SELECT Id, BillingStreet, BillingCity,BillingCountry, BillingState, BillingPostalCode   FROM Account 
                             WHERE Id =: accId 
                             AND 
-                            BillingStreet!= null AND BillingCity != null AND
+                            BillingStreet != null AND BillingCity != null AND BillingState != null AND
                             BillingCountry != null AND BillingPostalCode != null 
                             WITH USER_MODE LIMIT 1];
         //* Query encoding
-        String queryParam  = account.BillingStreet+'1%2C'+account.BillingPostalCode+account.BillingCity+'%2C'+account.BillingCountry; 
-        String encoded     = EncodingUtil.urlEncode(queryParam, 'UTF-8');
+        String newQuery    = account.BillingStreet+','+account.BillingCity+','+account.BillingState+','+account.BillingPostalCode+','+account.BillingCountry;
+        //String queryParam  = account.BillingStreet+'1%2C'+account.BillingPostalCode+account.BillingCity+'%2C'+account.BillingCountry; 
+        String encoded     = EncodingUtil.urlEncode(newQuery, 'UTF-8');
         String completeUrl = System.Label.GeoCode_URL+'?key='+System.Label.GeoCode_Key+'&q='+encoded+'&pretty=1';
         
-        System.debug('The encoded url :' + encoded);
         try {
             //* Send the Request 
         //? Step 1 : Prepare the httpRequest 
@@ -60,7 +60,7 @@ public with sharing class ForwardGeoCoding {
                 update as user account;
 
             } else {
-                System.debug('We hit with some issue on decoding the wrapper');
+                account.addError('We hit with some issue on decoding the wrapper');
             }
         }
         
