@@ -26,3 +26,6 @@ Account acc = null;
 String myName = acc?.Name;
 
 System.debug('My Name :' + myName);
+
+
+ForwardGeoCoding.forwardGeocodeRequest('001ao000008X8iJAAS');

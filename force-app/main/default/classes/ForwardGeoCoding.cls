@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 02-29-2024
+ * @last modified on  : 03-03-2024
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class ForwardGeoCoding {
@@ -20,7 +20,7 @@ public with sharing class ForwardGeoCoding {
         String newQuery    = account.BillingStreet+','+account.BillingCity+','+account.BillingState+','+account.BillingPostalCode+','+account.BillingCountry;
         //String queryParam  = account.BillingStreet+'1%2C'+account.BillingPostalCode+account.BillingCity+'%2C'+account.BillingCountry; 
         String encoded     = EncodingUtil.urlEncode(newQuery, 'UTF-8');
-        String completeUrl = System.Label.GeoCode_URL+'?key='+System.Label.GeoCode_Key+'&q='+encoded+'&pretty=1';
+        String completeUrl = System.Label.GeoCode_URL+'?key='+System.Label.GeoCode_Key+'&q='+'&pretty=1';
         
         try {
             //* Send the Request 
@@ -46,34 +46,34 @@ public with sharing class ForwardGeoCoding {
         System.debug('Geo Code Response status code :'+ statusCode);
         System.debug('Geo Code Response status :'+ status);
 
-        if (statusCode == 200) {
-            
-            ForwardGeoCodingWrapper wraper = (ForwardGeoCodingWrapper) System.JSON.deserialize(responseBody, ForwardGeoCodingWrapper.class);
-            if (wraper?.results?.size() > 0) {
-      
-                ForwardGeoCodingWrapper.results rslt = wraper.results[0];
-                //* Updating the account
-                account.Location__latitude__s  = rslt.geometry.lat;
-                account.Location__longitude__s = rslt.geometry.lng;
-
-              
-                update as user account;
-
-            } else {
-                account.addError('We hit with some issue on decoding the wrapper');
-            }
-        }
+            if (statusCode == 200) {
+                
+                ForwardGeoCodingWrapper wraper = (ForwardGeoCodingWrapper) System.JSON.deserialize(responseBody, ForwardGeoCodingWrapper.class);
+                if (wraper?.results?.size() > 0) {
         
+                    ForwardGeoCodingWrapper.results rslt = wraper.results[0];
+                    //* Updating the account
+                    account.Location__latitude__s  = rslt?.geometry?.lat;
+                    account.Location__longitude__s = rslt?.geometry?.lng;
+                    update as user account;
+                } 
+            }
+            
+        
+            else {
+                
+                account.Geo_Code_Error__c = 'We hit with bad error response' + statusCode;
+                
+                update as user account;
+            } 
         } catch (System.CalloutException calloutExp) {
             
             System.debug('Call out Exception occured :' + calloutExp.getMessage());
             if (String.valueOf(calloutExp.getMessage()).startsWith('Unauthorized endpoint')) {
-                
-                
+                        
                 System.debug('Missing Remote site config in salesforce');
             }
         } catch (System.Exception allExp) {
-
 
             System.debug('Exception hit :' + allExp.getStackTraceString());
         }
