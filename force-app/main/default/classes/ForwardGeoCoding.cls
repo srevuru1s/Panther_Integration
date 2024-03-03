@@ -17,10 +17,9 @@ public with sharing class ForwardGeoCoding {
                             BillingCountry != null AND BillingPostalCode != null 
                             WITH USER_MODE LIMIT 1];
         //* Query encoding
-        String newQuery    = account.BillingStreet+','+account.BillingCity+','+account.BillingState+','+account.BillingPostalCode+','+account.BillingCountry;
-        //String queryParam  = account.BillingStreet+'1%2C'+account.BillingPostalCode+account.BillingCity+'%2C'+account.BillingCountry; 
-        String encoded     = EncodingUtil.urlEncode(newQuery, 'UTF-8');
-        String completeUrl = System.Label.GeoCode_URL+'?key='+System.Label.GeoCode_Key+'&q='+'&pretty=1';
+        String queryParam    = account.BillingStreet+','+account.BillingCity+','+account.BillingState+','+account.BillingPostalCode+','+account.BillingCountry;
+        String encoded       = EncodingUtil.urlEncode(queryParam, 'UTF-8');
+        String completeUrl   = System.Label.GeoCode_URL+'?key='+System.Label.GeoCode_Key+'&q='+encoded+'&pretty=1';
         
         try {
             //* Send the Request 
