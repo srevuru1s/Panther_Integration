@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-12-2024
+ * @last modified on  : 03-14-2024
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class ZendeskTicketUtils {
@@ -82,6 +82,13 @@ public with sharing class ZendeskTicketUtils {
                 cs.Zendesk_Reference__c = zenId;
                 update as USER cs;
             } else {
+                 //* get the case Id
+                 String caseId = wrapper.name;
+                // * If the status code is not 201 then update the case with error message
+                Case cs = [SELECT Id FROM Case WHERE Id =: caseId WITH USER_MODE LIMIT 1];
+                cs.Zendesk_Error__c = 'Error while integrating with  Zendesk';
+                update as USER cs;
+            
                 System.debug('Error \n' + httpReq.getBody());
             }   
     

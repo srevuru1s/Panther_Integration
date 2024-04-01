@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-12-2024
+ * @last modified on  : 03-15-2024
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class CaseTriggerHandler {
@@ -19,7 +19,7 @@ public with sharing class CaseTriggerHandler {
                 wrapper.priority = zenCase.Priority.toLowerCase() == 'high' ? 'urgent' : 'low';
                 wrapper.subject  = zenCase.Subject;
                 wrapper.name     = zenCase.Id;
-                wrapper.email    = 'Panther.Integration@mail.com'; //*zenCase.Contact.Email
+                wrapper.email    = 'Panther.IntegrationTest@mail.com'; //*zenCase.Contact.Email
                 System.debug('The email Id of the case ---->🧪' + zenCase.Contact.Email);
                 //* we need to pass the sting format to future method
                 String ticketDetials = JSON.serialize(wrapper);
