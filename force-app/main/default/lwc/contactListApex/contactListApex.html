@@ -1,0 +1,28 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-15-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="Brand"  title="Apex Method With Property" icon-name="standard:account">
+        <div class="slds-var-p-horizontal_small">
+            <template lwc:if={records}>
+                
+                <template for:each={records} for:item="contact">
+                    <div key={contact.Id}>
+                        <p> Name : {contact.Name} </p>
+                        <p> Email : {contact.Email} </p>
+                    </div>
+                </template>
+
+            </template>
+        </div>
+        <div slot="footer"> Card Footer</div>
+
+        <lightning-button variant='brand' label='label' title='Change Search' onclick={handleOnClick} class='cssClass'>
+        </lightning-button>
+    </lightning-card>
+
+</template>

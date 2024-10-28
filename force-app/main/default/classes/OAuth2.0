@@ -1,0 +1,14 @@
+https://login.salesforce.com/services/oauth2/authorize?
+client_id=3MVG9jSKmPAPVo2Ia8iyoTjv_ETN5EoA9qqiedN7X1SWYtdyVTWO9_kz1eYWdMbLHO.l335HK1VAD5hPHnzn2&
+redirect_uri=https://academy.pantherschools.com/&
+response_type=code
+
+https://academy.pantherschools.com/
+
+Client ID : 3MVG9jSKmPAPVo2Ia8iyoTjv_ETN5EoA9qqiedN7X1SWYtdyVTWO9_kz1eYWdMbLHO.l335HK1VAD5hPHnzn2
+Client Secret : C8A0CD0460CDBA68670E04AB15F5437B1D6D2528816E8909AEFAAA74DAA1C852
+
+
+https://academy.pantherschools.com/?code=aPrx_dhXWn5fLSI0lqAn89Ayz0ukkHoVZs9OZlVSefuBgZRkuLLw0mkEqqtOaDXojAGoypnLaA%3D%3D
+
+https://academy.pantherschools.com/?code=aPrx_dhXWn5fLSI0lqAn89AyzxuB_C4yIHmQQ8TWTFhcVy9XZyLJwZa.BwiGuYdMMc7HrJ2Bww%3D%3D

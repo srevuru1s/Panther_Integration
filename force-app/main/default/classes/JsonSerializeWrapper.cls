@@ -2,11 +2,14 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-30-2024
+ * @last modified on  : 04-19-2024
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class JsonSerializeWrapper {
+	//* Example for Serialize 
+	public integer rollNumber;
     public ticket ticket;
+	
 	public class ticket {
 		public comment comment;
 		public String priority;	//urgent

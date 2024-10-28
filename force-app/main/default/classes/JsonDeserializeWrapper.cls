@@ -2,7 +2,7 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 03-30-2024
+ * @last modified on  : 04-02-2024
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class JsonDeserializeWrapper {
@@ -17,5 +17,6 @@ public with sharing class JsonDeserializeWrapper {
             public Decimal UnitPrice;	//1
             public Decimal Quantity;	//5
             public String ProductName;	//Pencil
+            public Integer Rollnumber;
         }
 }

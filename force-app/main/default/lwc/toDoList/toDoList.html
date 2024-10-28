@@ -1,0 +1,32 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-28-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card icon-name="standard:account" variant="base">
+        <div class= "slds-var-p-horizontal_small">
+            <p>This is the Object API Name : {objectApiName}</p>
+            <p>This is the Record Id : {recordId}</p>
+            <p>This is the Number of Records : {noOfReecords}</p>
+        </div>
+        <div class= "slds-var-p-horizontal_small">
+            <lightning-input type="text" variant="standard" name="First Name" label="First Name" placeholder="type here..." onchange={firstNameHandler}></lightning-input>
+            <lightning-input type="text" variant="standard" name="Last Name" label="Last Name" placeholder="type here..." onchange={lastNameHandler}></lightning-input>
+            <lightning-input type="text" variant="standard" name="Email" label="Email" placeholder="type here..." onchange={emailHandler}></lightning-input>
+            
+        </div> 
+        <div class= "slds-var-p-horizontal_small">
+            <lightning-button variant="brand" label="Create Contact" title="Create Contact" onclick={handleClick}></lightning-button>
+        </div>
+        <template if:true={listContacts} for:each={listContacts} for:item="contact">
+            
+            <div key={contact.Email}>
+                <p>{contact.FirstName} {contact.LastName} {contact.Email}</p>
+            </div>
+        
+        </template>   
+    </lightning-card>
+</template>

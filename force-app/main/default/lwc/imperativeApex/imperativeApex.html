@@ -1,0 +1,39 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-15-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="brand"  title="This is Imperative Apex" icon-name="standard:account">
+        <div class="slds-var-p-left_x-small">
+            <lightning-input
+                type="search"
+                onchange={handleKeyChange}
+                class="slds-var-p-left_x-small"
+                label="Search"
+                value={searchValue}>
+            </lightning-input>
+            <template  lwc:if={records} >
+                <!-- <template for:each={records} for:item="account">
+                    <div key={account.Name}>
+                        <p> Name : {account.Name} </p>
+                        <p> Industry : {account.Industry} </p>
+                        <p> Phone : {account.Phone} </p>
+                    </div>
+                </template> -->
+                <p> Id : {records.Id}</p>
+                <p> Name : {records.Name}</p>
+                <p> Phone : {records.Phone}</p>
+                <p> Name : {records.Industry}</p>
+            </template>
+    
+            <lightning-button class="slds-var-p-top_medium" variant="brand" label="Call Imperative Apex" title="titleName" onclick={handleClick}>
+    
+            </lightning-button>
+        </div>
+        
+
+    </lightning-card>
+</template>

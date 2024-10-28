@@ -1,0 +1,57 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-23-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card  variant="brand"  title="LookUp Component" icon-name="standard:account">
+        <div class="slds-form-element">
+            <lightning-input type="search" variant="standard" name="lookup" label="Parent Account" placeholder="type here..." onchange={handleChange}></lightning-input>
+        </div>
+        
+        <div class="slds-form-element">
+            <label class="slds-form-element__label" for="combobox-id-2" id="combobox-label-id-6">Relate To</label>
+            <div class="slds-form-element__control">
+            <div class="slds-combobox_container">
+            <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open">
+            <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+            <input type="text" class="slds-input slds-combobox__input slds-has-focus" id="combobox-id-2" aria-autocomplete="list" aria-controls="listbox-id-2" aria-expanded="true" aria-haspopup="listbox"  role="combobox" placeholder="Search..."
+            />
+            <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
+            <svg class="slds-icon slds-icon slds-icon_x-small slds-icon-text-default" aria-hidden="true">
+            <use xlink:href="/apexpages/slds/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
+            </svg>
+            </span>
+            </div>
+            <div id="listbox-id-2" class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid" role="listbox"  tabindex="0" aria-busy="false">
+            <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+            </ul>
+            
+                <template for:each={data} for:item="acc">
+                    <li key={acc.Id} role="presentation" class="slds-listbox__item">
+                        <div class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+                        <span class="slds-media__figure slds-listbox__option-icon">
+                        <span class="slds-icon_container slds-icon-standard-account">
+                        <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                        <use xlink:href="/apexpages/slds/assets/icons/standard-sprite/svg/symbols.svg#account"></use>
+                        </svg>
+                        </span>
+                        </span>
+                        <span class="slds-media__body">
+                        <span class="slds-listbox__option-text_entity">{acc.Name}</span>
+                        <span class="slds-listbox__option-meta">Account</span>
+                        </span>
+                        </div>
+                        </li>
+                </template>
+        
+           
+                        </div>
+            </div>
+            </div>
+            </div>
+            </div>
+    </lightning-card>
+</template>

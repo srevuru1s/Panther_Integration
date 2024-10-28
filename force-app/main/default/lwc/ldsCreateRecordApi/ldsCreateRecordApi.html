@@ -1,0 +1,22 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-30-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card icon-name="standard:account" variant="base" title="LDS Create Record">
+        <div class=" slds-var-p-horizontal_small">
+            <!-- Account form -->
+            <lightning-input type="text" variant="standard" name="Name" label="Account Name" required="true" onchange={handleAccountInputChange}></lightning-input>          
+            <!-- Contact form -->
+            <lightning-input type="text" variant="standard" name="FirstName" label="First Name" required="true" onchange={handleContactInputChange}></lightning-input>          
+            <lightning-input type="text" variant="standard" name="LastName" label="Last Name" required="true" onchange={handleContactInputChange}></lightning-input>          
+            <lightning-input type="email" variant="standard" name="Email" label="Email" required="true" onchange={handleContactInputChange}></lightning-input>          
+        </div>
+        <div class="slds-var-p-horizontal_small">
+            <lightning-button variant="brand" label="Create Account" title="Create Account" onclick={handleClick}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

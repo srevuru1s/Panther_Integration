@@ -1,0 +1,28 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 09-29-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card icon-name="standard:account" variant="base">
+        <div>
+            <lightning-record-form
+                record-id={recordId}
+                object-api-name={objectApiName}
+                fields={fields}
+                columns="2"
+                mode="edit"
+                onsuccess={handleSuccess}
+                onerror={handleError}
+                onsubmit={handleSubmit}
+                oncancel={handleCancel}
+                onload={handleLoad}
+            >
+            </lightning-record-form>
+        </div>
+            
+    </lightning-card>
+
+</template>

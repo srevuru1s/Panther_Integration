@@ -1,0 +1,23 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 10-16-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card lwc:ref="lwcCard" title="Parent component LCH" icon-name="standard:account" variant="brand">
+          <div  class="parent slds-var-p-horizontal_small">
+            <lightning-button variant="brand" label="Parent renderCallback" onclick={handleClick}></lightning-button>
+            
+            <template lwc:if={childComponent}>
+              <c-life-cycle-hooks-child greeting={greetings}></c-life-cycle-hooks-child>
+            </template>
+            
+            <lightning-button variant="brand" label="Change Template" title="titleName" onclick={handleTemplateClick}>
+
+            </lightning-button>
+          </div>
+    </lightning-card>
+    
+</template>
